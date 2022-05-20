@@ -25,12 +25,6 @@ In our projects we follow several rules, such as:
   check must pass with the `--strict` option. This ensures the code is well annotated, well formatted, PEP8 compliant
   and does not contain any obvious bugs and syntax errors.
 
-- We follow the popular rules that make a good code including, but not limited to:
-  [DRY](https://www.digitalocean.com/community/tutorials/what-is-dry-development)
-  , [SOLID](https://www.digitalocean.com/community/conceptual_articles/s-o-l-i-d-the-first-five-principles-of-object-oriented-design)
-  , [KISS](https://people.apache.org/~fhanik/kiss.html)
-  , [YAGNI](https://dev.to/richardwynn/yagni-principle-in-100-seconds-1i6j).
-
 ### Fully documented code
 
 Every method and class must contain information, such as its purpose and behaviour. The ultimate goal is to write
