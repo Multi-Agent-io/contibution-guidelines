@@ -25,6 +25,61 @@ In our projects we follow several rules, such as:
   check must pass with the `--strict` option. This ensures the code is well annotated, well formatted, PEP8 compliant
   and does not contain any obvious bugs and syntax errors.
 
+- **Private/protected fields and methods**. We discourage use double underlines (also called "dunder") as it impacts readability and testability, and isn’t really private. Prefer a single underscore instead.
+
+<table>
+  <thead>
+    <tr>
+      <th>Bad practice</th>
+      <th>Good practice</th>
+    </tr>
+  </thead>
+<tbody>
+<tr>
+  <td>
+
+  ```python
+  class SomeClass:
+    def __init__(self) -> None:
+      self.__a == 1
+
+    def __some_method(self) -> None:
+      print('Hello')
+
+  # You have access to 'dunder' methods/field like this:
+
+  >>> SomeClass()._SomeClass__a
+  >>> 1
+
+  >>> SomeClass()._SomeClass__some_method()
+  >>> 'Hello'
+  ```
+
+  </td>
+  <td>
+
+  ```python
+  class SomeClass:
+    def __init__(self) -> None:
+      self._a == 1
+
+    def _some_method(self) -> None:
+      print('Hello')
+
+  # You still able to access those methods/field, but it's much readable:
+
+  >>> SomeClass()._a
+  >>> 1
+
+  >>> SomeClass()._some_method()
+  >>> 'Hello'
+  ```
+
+  </td>
+</tr>
+</tbody>
+</table>
+
 ### Fully documented code
 
 Every method and class must contain information, such as its purpose and behaviour. The ultimate goal is to write
@@ -33,7 +88,7 @@ and explicit code style. Refer to "Refactoring" and "Clean code" books or their 
 
 ### Project dependency management
 
-We recommend using [Poetry]((https://python-poetry.org/)) as your default dependency management system. It is also
+We recommend using [Poetry](<(https://python-poetry.org/)>) as your default dependency management system. It is also
 useful for package builders as it automatically generates a `pyproject.toml` file for your project, containing all the
 relevant information about your package and allowing for easy wheel generation.
 
@@ -65,7 +120,7 @@ should also be included as development dependencies.
 
 ### Formatters
 
-* black
+- black
 
 ```bash
 $ black src -l 120
@@ -73,7 +128,7 @@ $ black src -l 120
 
 ### Static checkers
 
-* mypy
+- mypy
 
 ```bash
 $ mypy src --strict --exclude "test*, .venv" --ignore-missing-imports --allow-untyped-decorators --warn-incomplete-stub --implicit-reexport
