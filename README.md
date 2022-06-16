@@ -8,6 +8,14 @@
 
 * We recommend you to use Docker (or docker-compose)
 
+* **.gitignore** in every project. Must include:
+
+    1. `.DS_Store` (OSX)
+    2. `.idea` (every platform)
+    3. `.vscode`
+    4. `poetry.lock` and `package-lock.json` (OS and arch specific package builds/sources)
+    4. Other language specific stuff (`__pycache__`, `.venv`, `node_modules`, etc)
+
 ## Benefits of unified code style
 
 This guide includes some code style recommendations as well as best practices. Following these guidelines ensures
